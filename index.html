@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <title>Pacific Fern — Software with Conscience</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pacific Fern is a quiet software studio where software is made with conscience, in service of what comes next.">
+  <meta name="description" content="Pacific Fern is a software studio where software is made with conscience, in service of what comes next.">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pacific Fern — Software with Conscience">
+  <meta property="og:description" content="A software studio focused on humane, durable systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-preview.jpg">
+  <meta property="og:url" content="https://pacificfern.com">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/favicon.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -35,7 +47,7 @@
 
 <section class="hero">
   <div class="hero-media">
-    <img src="images/banner.jpg" alt="Pacific ocean horizon" class="hero-image">
+    <img src="images/banner.jpg" alt="Pacific ocean horizon" class="hero-image" id="heroImage">
     <div class="grain-overlay"></div>
   </div>
 
@@ -207,11 +219,29 @@
 <script>
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
+  const heroImage = document.getElementById("heroImage");
 
   toggle.addEventListener("click", () => {
     const current = html.getAttribute("data-theme");
     html.setAttribute("data-theme", current === "light" ? "dark" : "light");
   });
+
+  let ticking = false;
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        heroImage.style.transform = `translateY(${scrolled * 0.15}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    window.addEventListener("scroll", onScroll);
+  }
 </script>
 
 </body>
