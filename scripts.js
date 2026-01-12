@@ -34,14 +34,46 @@ document.addEventListener("DOMContentLoaded", () => {
      =============================== */
   html.classList.add("page-loaded");
 
+  // Restore visibility on history navigation
   window.addEventListener("pageshow", () => {
     html.classList.add("page-loaded");
+  });
+
+  /* ===============================
+     COMING SOON MODAL
+     =============================== */
+  const modal = document.getElementById("coming-soon-modal");
+  const modalClose = document.getElementById("modal-close");
+
+  if (modal && modalClose) {
+    modalClose.addEventListener("click", () => {
+      modal.hidden = true;
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.hidden = true;
+    });
+  }
+
+  document.querySelectorAll(".coming-soon").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (modal) modal.hidden = false;
+    });
   });
 
   /* ===============================
      PAGE TRANSITIONS
      =============================== */
   document.querySelectorAll("a[href]").forEach((link) => {
+    // Skip modal-bound links
+    if (link.classList.contains("coming-soon")) return;
+
+    const href = link.getAttribute("href");
+
+    // Ignore empty or placeholder links
+    if (!href || href === "#" || href === "") return;
+
     const url = new URL(link.href, location.href);
 
     // Skip same-page anchors
