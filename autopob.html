@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>AutoPOB — Automated Police Reporting</title>
@@ -9,6 +9,10 @@
       content="AutoPOB automates hotel police reporting by converting structured guest data into compliant CSV formats. Built for reliability, not noise."
     />
     <meta name="view-transition" content="same-origin" />
+    <script>
+      const t = localStorage.getItem("theme");
+      if (t !== null) document.documentElement.setAttribute("data-theme", t);
+    </script>
 
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="images/favicon.png" />
@@ -18,7 +22,6 @@
     />
   </head>
 
-  <script src="scripts.js" defer></script>
   <body class="product-page">
     <header class="site-header">
       <div class="header-inner">
@@ -151,5 +154,7 @@
     </main>
 
     <footer>© 2026 Pacific Fern — Built with intention.</footer>
+
+    <script src="scripts.js" defer></script>
   </body>
 </html>
