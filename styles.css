@@ -244,6 +244,15 @@ nav a {
   padding: 70px 24px 110px;
 }
 
+main > .container:first-of-type {
+  padding-top: 140px;
+}
+
+.product-page main > .container:first-of-type {
+  padding-top: 70px;
+}
+
+
 .section-label {
   text-transform: uppercase;
   letter-spacing: 1.4px;
@@ -486,4 +495,123 @@ footer {
   .partners-row {
     justify-content: center;
   }
+}
+/* ==================================================
+   PRODUCT PAGE — LAYOUT
+   ================================================== */
+
+.product-hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 140px; /* separation from fixed header */
+  background: var(--bg);
+  color: var(--text);
+}
+
+.product-hero-inner {
+  max-width: 900px;
+  padding: 64px 56px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+[data-theme="dark"] .product-hero-inner {
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==================================================
+   PRODUCT HERO — TYPOGRAPHY
+   ================================================== */
+
+.product-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 18px;
+}
+
+.product-hero h1 {
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  margin-bottom: 14px;
+}
+
+.product-subline {
+  font-size: 20px;
+  opacity: 0.85;
+}
+
+
+/* ==================================================
+   BREADCRUMB NAVIGATION
+   ================================================== */
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: rgba(255,255,255,0.75); /* same base as header links */
+}
+
+.breadcrumb-nav a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-nav a:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+/* Current page label — identical in both modes */
+.breadcrumb-current {
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+
+/* ==================================================
+   PRODUCT PAGE — HEADER OVERRIDES
+   ================================================== */
+
+.product-page .site-header::before {
+  display: none;
+}
+
+.product-page .site-header::after {
+  opacity: 1;
+  transition: none;
+}
+
+.product-page main {
+  padding-top: 0px;
+}
+
+
+/* ==================================================
+   PAGE TRANSITIONS — FADE
+   ================================================== */
+
+html {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+html.page-loaded {
+  opacity: 1;
 }
