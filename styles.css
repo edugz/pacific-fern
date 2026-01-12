@@ -11,6 +11,9 @@ html {
   --muted: #5b6b7f;
   --accent: #3fa68a;
   --border: rgba(15, 23, 42, 0.08);
+
+  --header-bg-light: 240, 243, 247;
+  --header-bg-dark: 18, 22, 36;
 }
 
 [data-theme="dark"] {
@@ -20,7 +23,10 @@ html {
   --muted: #a2b0c8;
   --accent: #6ee7b7;
   --border: rgba(255, 255, 255, 0.1);
+
+  --header-bg-light: 18, 22, 36; /* override */
 }
+
 
 /* ---------- RESET ---------- */
 
@@ -48,11 +54,50 @@ body {
   position: fixed;
   width: 100%;
   z-index: 20;
+  overflow: hidden;
+}
+
+/* Base gradient (initial state) */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.45), /* unified tone */
-    rgba(0,0,0,0)
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0) 100%
   );
+  z-index: -2;
+}
+
+/* Overlay (solid state) */
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(10, 14, 22); /* solid dark for light mode */
+  opacity: 0;
+  transition: opacity 0.8s ease; /* fast fade-out */
+  z-index: -1;
+}
+
+/* Dark mode overlay */
+[data-theme="dark"] .site-header::after {
+  background: rgb(20, 24, 38);
+}
+
+/* Fade in slower when scrolled */
+.site-header.scrolled::after {
+  opacity: 1;
+  transition: opacity 1.5s ease; /* slow fade-in */
+}
+
+/* Text color switch — ONLY for dark mode */
+[data-theme="dark"] .site-header.scrolled .brand,
+[data-theme="dark"] .site-header.scrolled nav a,
+[data-theme="dark"] .site-header.scrolled #theme-toggle {
+  color: var(--text);
 }
 
 .header-inner {
@@ -94,6 +139,8 @@ nav a {
   font-size: 16px;
 }
 
+
+
 /* ---------- HERO ---------- */
 
 .hero {
@@ -110,12 +157,10 @@ nav a {
 
 .hero-image {
   position: absolute;
-  top: -10vh;
-  left: 0;
+  inset: 0;
   width: 100%;
-  height: 120vh;
+  height: 100%;
   object-fit: cover;
-  will-change: transform;
   filter: contrast(1.08) saturate(1.03) brightness(0.96);
 }
 
@@ -251,7 +296,7 @@ nav a {
   display: flex;
   flex-direction: column;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: background 1s ease, backdrop-filter 1s ease;
 }
 
 .project-card:hover {

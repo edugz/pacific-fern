@@ -219,29 +219,23 @@
 <script>
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
-  const heroImage = document.getElementById("heroImage");
+  const header = document.querySelector(".site-header");
 
   toggle.addEventListener("click", () => {
     const current = html.getAttribute("data-theme");
     html.setAttribute("data-theme", current === "light" ? "dark" : "light");
   });
 
-  let ticking = false;
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrolled = window.scrollY;
-        heroImage.style.transform = `translateY(${scrolled * 0.15}px)`;
-        ticking = false;
-      });
-      ticking = true;
+  function updateHeader() {
+    if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
     }
   }
 
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    window.addEventListener("scroll", onScroll);
-  }
+  window.addEventListener("scroll", updateHeader);
+  window.addEventListener("load", updateHeader);
 </script>
 
 </body>
