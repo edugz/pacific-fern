@@ -27,7 +27,6 @@ html {
   --header-bg-light: 18, 22, 36; /* override */
 }
 
-
 /* ---------- RESET ---------- */
 
 * {
@@ -43,7 +42,7 @@ section {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.7;
   transition: background 0.5s ease, color 0.5s ease;
 }
@@ -64,9 +63,9 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.45) 0%,
-    rgba(0,0,0,0.25) 40%,
-    rgba(0,0,0,0) 100%
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0) 100%
   );
   z-index: -2;
 }
@@ -126,7 +125,7 @@ body {
 nav a {
   margin-left: 26px;
   text-decoration: none;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
 }
 
@@ -134,12 +133,10 @@ nav a {
   margin-left: 26px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   cursor: pointer;
   font-size: 16px;
 }
-
-
 
 /* ---------- HERO ---------- */
 
@@ -192,10 +189,10 @@ nav a {
 :root .hero-frame {
   background: linear-gradient(
     to bottom,
-    rgba(255,255,255,0.0) 0%,
-    rgba(255,255,255,0.0) 65%,
-    rgba(255,255,255,0.04) 74%,
-    rgba(255,255,255,0.10) 84%,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 65%,
+    rgba(255, 255, 255, 0.04) 74%,
+    rgba(255, 255, 255, 0.1) 84%,
     var(--bg) 100%
   );
 }
@@ -203,10 +200,10 @@ nav a {
 [data-theme="dark"] .hero-frame {
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.0) 0%,
-    rgba(0,0,0,0.0) 65%,
-    rgba(0,0,0,0.18) 74%,
-    rgba(0,0,0,0.32) 84%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.18) 74%,
+    rgba(0, 0, 0, 0.32) 84%,
     var(--bg) 100%
   );
 }
@@ -221,19 +218,15 @@ nav a {
   font-weight: 500;
   letter-spacing: -0.4px;
   margin-bottom: 14px;
-  color: rgba(255,255,255,0.92);
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.3),
-    0 12px 40px rgba(0,0,0,0.35);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 .hero-subline {
   font-size: 21px;
   letter-spacing: 0.25px;
-  color: rgba(255,255,255,0.82);
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.3),
-    0 12px 40px rgba(0,0,0,0.35);
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* ---------- SECTIONS ---------- */
@@ -251,7 +244,6 @@ main > .container:first-of-type {
 .product-page main > .container:first-of-type {
   padding-top: 70px;
 }
-
 
 .section-label {
   text-transform: uppercase;
@@ -310,12 +302,12 @@ main > .container:first-of-type {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
   border-color: rgba(63, 166, 138, 0.3);
 }
 
 [data-theme="dark"] .project-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-header {
@@ -340,12 +332,12 @@ main > .container:first-of-type {
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(0,0,0,0.04);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--muted);
 }
 
 [data-theme="dark"] .project-tags span {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .project-card p {
@@ -387,7 +379,6 @@ main > .container:first-of-type {
   color: var(--text);
 }
 
-
 /* ---------- PARTNERS ---------- */
 
 .partners-row {
@@ -404,10 +395,7 @@ main > .container:first-of-type {
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.75;
-  transition: 
-    filter 0.3s ease, 
-    opacity 0.3s ease,
-    transform 0.25s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.25s ease;
 }
 
 .partner-logo:hover {
@@ -516,18 +504,13 @@ footer {
   border-radius: 18px;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.06),
-    0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
   text-align: center;
 }
 
 [data-theme="dark"] .product-hero-inner {
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-
 
 /* ==================================================
    PRODUCT HERO — TYPOGRAPHY
@@ -554,7 +537,6 @@ footer {
   opacity: 0.85;
 }
 
-
 /* ==================================================
    BREADCRUMB NAVIGATION
    ================================================== */
@@ -562,28 +544,35 @@ footer {
 .breadcrumb-nav {
   display: flex;
   align-items: center;
-  gap: 10px;
   font-size: 13px;
   letter-spacing: 0.2px;
-  color: rgba(255,255,255,0.75); /* same base as header links */
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.breadcrumb-nav a,
+.breadcrumb-nav span {
+  margin-left: 0;
+  margin-right: 12px; /* breathing space */
+}
+
+.breadcrumb-nav > *:last-child {
+  margin-right: 0;
 }
 
 .breadcrumb-nav a {
   text-decoration: none;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   transition: color 0.2s ease;
 }
 
 .breadcrumb-nav a:hover {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* Current page label — identical in both modes */
 .breadcrumb-current {
-  color: rgba(255,255,255,0.95);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
 }
-
 
 /* ==================================================
    PRODUCT PAGE — HEADER OVERRIDES
@@ -601,7 +590,6 @@ footer {
 .product-page main {
   padding-top: 0px;
 }
-
 
 /* ==================================================
    PAGE TRANSITIONS — FADE
