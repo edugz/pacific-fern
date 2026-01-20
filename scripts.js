@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
   const header = document.querySelector(".site-header");
   const toggle = document.getElementById("theme-toggle");
+  const burger = document.getElementById("burger");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   /* ===============================
      THEME PERSISTENCE + TOGGLE
@@ -99,4 +101,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200);
     });
   });
+
+  /* ===============================
+     BURGER MENU TOGGLE
+     =============================== */
+
+  if (burger && mobileMenu && header) {
+    burger.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+      header.classList.toggle("menu-open");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        header.classList.remove("menu-open");
+      });
+    });
+  }
 });

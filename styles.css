@@ -44,7 +44,9 @@ body {
   color: var(--text);
   font-family: "Inter", sans-serif;
   line-height: 1.7;
-  transition: background 0.5s ease, color 0.5s ease;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
 }
 
 /* ---------- HEADER ---------- */
@@ -53,7 +55,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 20;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Base gradient (initial state) */
@@ -92,10 +94,20 @@ body {
   transition: opacity 1.2s ease;
 }
 
+.site-header.menu-open::after {
+  opacity: 1;
+}
+
 /* Text color switch — ONLY for dark mode */
 [data-theme="dark"] .site-header.scrolled .brand,
 [data-theme="dark"] .site-header.scrolled nav a,
 [data-theme="dark"] .site-header.scrolled #theme-toggle {
+  color: var(--text);
+}
+
+[data-theme="dark"] .site-header.menu-open .brand,
+[data-theme="dark"] .site-header.menu-open nav a,
+[data-theme="dark"] .site-header.menu-open #theme-toggle {
   color: var(--text);
 }
 
@@ -106,6 +118,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .brand {
@@ -219,14 +232,18 @@ nav a {
   letter-spacing: -0.4px;
   margin-bottom: 14px;
   color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 .hero-subline {
   font-size: 21px;
   letter-spacing: 0.25px;
   color: rgba(255, 255, 255, 0.82);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 40px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* ---------- SECTIONS ---------- */
@@ -297,7 +314,9 @@ main > .container:first-of-type {
   display: flex;
   flex-direction: column;
 
-  transition: background 1s ease, backdrop-filter 1s ease;
+  transition:
+    background 1s ease,
+    backdrop-filter 1s ease;
 }
 
 .project-card:hover {
@@ -395,7 +414,10 @@ main > .container:first-of-type {
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.75;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.25s ease;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.25s ease;
 }
 
 .partner-logo:hover {
@@ -504,12 +526,16 @@ footer {
   border-radius: 18px;
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.04);
   text-align: center;
 }
 
 [data-theme="dark"] .product-hero-inner {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ==================================================
@@ -657,7 +683,9 @@ html.page-loaded {
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .modal button:hover {
@@ -666,4 +694,78 @@ html.page-loaded {
 
 [data-theme="dark"] .modal button:hover {
   background: rgba(255, 255, 255, 0.06);
+}
+
+/* ==================================================
+   MOBILE MENU STYLES
+   ================================================== */
+
+/* Hide burger by default (desktop) */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Burger bars */
+.burger span {
+  width: 22px;
+  height: 2px;
+  background: white;
+  display: block;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .site-header > .header-inner > nav {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: min(180px, 45vw);
+  height: calc(100vh - 100px);
+  background: rgb(255, 255, 255, 0.95);
+  color: #0b1220;
+  box-shadow: -6px 0 18px rgba(0, 0, 0, 0.12);
+  padding: 18px 14px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.mobile-nav a,
+.mobile-nav button {
+  font-size: 16px;
+  color: #0b1220;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 8px 0;
+}
+
+.nav-wrapper {
+  position: relative;
 }
