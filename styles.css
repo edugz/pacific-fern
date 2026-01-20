@@ -2,7 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ---------- COLOR SYSTEM ---------- */
+/* ==================================================
+   COLOR SYSTEM
+   ================================================== */
 
 :root {
   --bg: #f6f9fc;
@@ -27,7 +29,9 @@ html {
   --header-bg-light: 18, 22, 36; /* override */
 }
 
-/* ---------- RESET ---------- */
+/* ==================================================
+   RESET & BASE STYLES
+   ================================================== */
 
 * {
   box-sizing: border-box;
@@ -49,7 +53,9 @@ body {
     color 0.5s ease;
 }
 
-/* ---------- HEADER ---------- */
+/* ==================================================
+   HEADER
+   ================================================== */
 
 .site-header {
   position: fixed;
@@ -77,7 +83,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(10, 14, 22); /* solid dark for light mode */
+  background: rgb(10, 14, 22);
   opacity: 0;
   transition: opacity 1.2s ease;
   z-index: -1;
@@ -151,7 +157,9 @@ nav a {
   font-size: 16px;
 }
 
-/* ---------- HERO ---------- */
+/* ==================================================
+   HERO SECTION
+   ================================================== */
 
 .hero {
   height: 100vh;
@@ -186,8 +194,9 @@ nav a {
   mix-blend-mode: overlay;
 }
 
-/* ---------- HERO FRAME ---------- */
-
+/* ==================================================
+   HERO FRAME & TEXT
+   ================================================== */
 .hero-frame {
   position: absolute;
   inset: 0;
@@ -248,7 +257,9 @@ nav a {
   margin-top: 8px;
 }
 
-/* ---------- SECTIONS ---------- */
+/* ==================================================
+   SECTION CONTAINERS & LABELS
+   ================================================== */
 
 .container {
   max-width: 1100px;
@@ -279,7 +290,9 @@ main > .container:first-of-type {
   margin-bottom: 28px;
 }
 
-/* ---------- MANIFESTO ---------- */
+/* ==================================================
+   MANIFESTO
+   ================================================== */
 
 .manifesto {
   text-align: center;
@@ -305,7 +318,9 @@ main > .container:first-of-type {
   opacity: 1;
 }
 
-/* ---------- PROJECTS ---------- */
+/* ==================================================
+   PROJECTS GRID
+   ================================================== */
 
 .projects-grid {
   display: grid;
@@ -406,7 +421,9 @@ main > .container:first-of-type {
   color: var(--text);
 }
 
-/* ---------- PARTNERS ---------- */
+/* ==================================================
+   PARTNERS ROW
+   ================================================== */
 
 .partners-row {
   display: flex;
@@ -443,7 +460,9 @@ main > .container:first-of-type {
   filter: grayscale(0%) brightness(1.1);
 }
 
-/* ---------- CONTACT ---------- */
+/* ==================================================
+   CONTACT CARD
+   ================================================== */
 
 .contact-card {
   background: var(--card);
@@ -481,7 +500,9 @@ main > .container:first-of-type {
   opacity: 1;
 }
 
-/* ---------- FOOTER ---------- */
+/* ==================================================
+   FOOTER
+   ================================================== */
 
 footer {
   text-align: center;
@@ -491,7 +512,9 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ==================================================
+   RESPONSIVE STYLES
+   ================================================== */
 
 @media (max-width: 700px) {
   .projects-grid {
@@ -523,7 +546,7 @@ footer {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 140px; /* separation from fixed header */
+  padding-top: 140px;
   background: var(--bg);
   color: var(--text);
 }
@@ -586,7 +609,7 @@ footer {
 .breadcrumb-nav a,
 .breadcrumb-nav span {
   margin-left: 0;
-  margin-right: 12px; /* breathing space */
+  margin-right: 12px;
 }
 
 .breadcrumb-nav > *:last-child {
@@ -737,7 +760,7 @@ html.page-loaded {
   }
 }
 
-/* Mobile menu styles */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 100px;

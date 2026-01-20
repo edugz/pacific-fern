@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      HEADER SCROLL STATE
      =============================== */
+
   if (header) {
     const updateHeader = () => {
       if (window.scrollY > 0) {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      PAGE FADE-IN
      =============================== */
+
   html.classList.add("page-loaded");
 
   // Restore visibility on history navigation
@@ -52,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      COMING SOON MODAL
      =============================== */
+
   const modal = document.getElementById("coming-soon-modal");
   const modalClose = document.getElementById("modal-close");
 
@@ -75,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      PAGE TRANSITIONS
      =============================== */
+
   document.querySelectorAll("a[href]").forEach((link) => {
     // Skip modal-bound links
     if (link.classList.contains("coming-soon")) return;
